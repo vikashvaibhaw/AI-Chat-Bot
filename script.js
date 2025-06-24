@@ -42,8 +42,8 @@ async function generateResponse(aiChatBox){
        let response=await fetch(Api_Url,RequestOption);
        let data=await response.json()
        let apiResponse=data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g,"$1").trim()
-       text.innerHTML=apiResponse
-       console.log(apiResponse);
+       text.innerHTML=marked.parse(apiResponse)
+       // console.log(apiResponse);
        
     }
     catch(error){
